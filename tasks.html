@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bicycle</title>
+    <style>
+        body {
+            color: hsla(120, 27%, 2%, 0.726);
+            background: #9ed9e4; 
+        }
+    </style>
+</head>
+<body>
+    <h1>Моя первая страница</h1>
+    
+    <div id="ball">
+        <h2 class="odd">Мячик</h2>
+        <b>Наша Таня громко плачет:</b><br>
+        <i>Уронила в речку мячик.</i><br>
+        -Тише, Танечка, не плачь:<br>
+        <strike>Не утонет в речке мяч.</strike><br>
+        <i><b>Автор: А.Л.Барто</b></i>
+    </div>
+    <div id="mems">
+        <h2 class="even">Весёлые картинки</h2>
+        <img src="/img/cat_bike.jpg" alt="Кот на велосипеде">
+        <img src="/img/frog_bike.jpg" alt="Лягушка на велосипеде">
+    </div>
+    <div id="schedule">
+        <h2 class="odd">Расписание звонков</h2>
+        <ol>
+            <li>08:20 - 09:50</li>
+            <li>10:00 - 11:30</li>
+            <ul>
+                <li><b>Перемена 40 минут</b></li>
+            </ul>
+            <li>12:10 - 13:40</li>
+            <li>13:50 - 15:20</li>
+            <li>15:30 - 17:00</li>
+            <ul>
+                <li><b>Перемена 40 минут</b></li>
+            </ul>
+            <li>17:20-18:50</li>
+            <li>19:00-20:30</li>
+        </ol>
+    </div>
+    <div id="timetable">
+        <h2 class="even">Расписание пар</h2>
+        <table>
+            <thead>
+                <tr>
+                    <td>Номер пары</td>
+                    <td>Название предмета</td>
+                    <td>Аудитория</td>
+                    <td>Преподаватель</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Выпуклый анализ</td>
+                    <td>223</td>
+                    <td>Петров Н.Н.</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Методы оптимизации</td>
+                    <td>223</td>
+                    <td>Банников А.С.</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Иностранный язык</td>
+                    <td>221</td>
+                    <td>Касаткина Т.Ю.</td>
+                </tr>
+            </tbody>
+    
+        </table>
+
+    </div>
+    <div id="diary">
+        <h2 class="odd">Дневник</h2>
+        <form action="" method="post">
+            <div>
+                <label for="surname">Фамилия</label>
+                <input type="text" name="surname" id="surname" value="Иванов">
+                <label for="name">Имя</label>
+                <input type="text" name="name" id="name" value="Иван">
+                <label for="fathername">Отчество</label>
+                <input type="text" name="fathername" id="fathername" value="Иванович">
+            </div>
+            <div>
+                <p><b>Пол</b></p>
+                <p><input name="gender" type="radio" value="man">Мужской</p>
+                <p><input name="gender" type="radio" value="woman">Женский</p>
+            </div>
+            <div>
+                <label for="school">Школа</label>
+                <input type="text" name="school" id="school" value="12">
+                <label for="city">Населенный пункт</label>
+                <input type="text" name="city" id="city" value="Ижевск">
+                <label for="class">Класс</label>
+                <input type="text" name="class" id="class" value="8А">
+            </div>
+            <button type="submit">Авторизоваться</button>
+        </form>
+        <form action="">
+            <label for="color">Цвет обложки</label>
+            <input type="color" name="color">
+            <label for="year">Год начала учебного года</label>
+            <input type="number" id="year" value="2021">
+            <label for="email">Email</label>
+            <input type="email" id="email" value="blabla.mail.ru">
+            <label for="tell">Телефон</label>
+            <input type="tell" id="tell" value="+79128345612">
+        </form>
+    </div>
+    <div id="accountancy">
+        <h2 class="even">Бухгалтерия</h2>
+    </div>
+    <p lang="jp">
+        <ruby>
+            ありがとう<rt>Arigatō</rt>
+        </ruby>
+        <ruby>
+            おはよう<rt>Ohayō</rt>
+        </ruby>
+    </p>
+    
+    <script>
+        console.log('Hello world!');
+    </script>
+    <!--  -->
+                   
+</body>
+</html>
