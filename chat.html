@@ -40,12 +40,32 @@
             margin-bottom: 60px;
         }
         .message {
-            background-color: rgb(219, 162, 93);
-            border: 1px solid rgb(146, 128, 105);
             padding: 10px;
             margin: 10px;
             border-radius: 10px;
             width: fit-content;
+        }
+        .friend {
+            background-color: azure;
+            border: 1px solid rgb(7, 82, 57);
+        }
+        .me {
+            background-color: aquamarine;
+            border:rgb(16, 14, 44);
+            align-self: flex-end;
+        }
+        .author {
+            display: block;
+            font-weight: bold;
+            text-decoration-line: underline;
+            padding-bottom: 10px;
+            font-size: large;
+        }
+        .time {
+            font-size: x-small;
+            display: block;
+            text-align: right;
+            padding-bottom: 10px;
         }
     </style>
 </head>
@@ -63,10 +83,10 @@
         </div>
     </div>
     <script>
-        const me = "mary";
+        const me = "fox";
         function newMessage({id,message,time,author}){
             let div = document.createElement('div');
-            div.id = 'message-'.id;
+            div.id = 'message-'+id;
             if (author === undefined || author === me){
                 div.className = 'message me';
             } else {
@@ -98,6 +118,28 @@
                 behavior:'smooth',
             })
         }
+
+        function getMessagesFromServer(sec) {
+            let xmlhttp = new XMLHttpRequest();
+            const url = 'https://chat.9pr.ru/message/'+sec;
+            xmlhttp.open('GET',url);
+            xmlhttp.send(null);
+            xmlhttp.onload = () => {
+                let data = xmlhttp.responseText;
+                data = JSON.parse(data);
+                if (data.error !== undefined) {
+                    console.log(data.error);
+                } else {
+                    for (let i in data) {
+                        if (document.querySelector('#message-'+data[i].id)==null) {
+                            newMessage(data[i]);
+                        }
+                    }
+                }
+                
+            }
+            localStorage.setItem('time',Math.floor(Date.now()/1000));
+        }
         function sendMessage(e){
             let message = document.querySelector("#message");
             let text = message.value;
@@ -112,11 +154,15 @@
             }
         }
         window.onload = () => {
+            localStorage.setItem('time',Math.floor(Date.now()/1000));
             document.querySelector("#send_message").onclick = sendMessage;
             document.querySelector("#message").onkeyup = sendMessageByEnter;
-            for (let i=0;i<30;i++){
-                newMessage({id:"33"+i,message:"Сообщение №"+i,time:1929292,author:"Кинг-конг"});
-            }
+            
+            getMessagesFromServer(0);
+
+            setInterval(()=> {
+                getMessagesFromServer(localStorage.getItem('time')-5);
+            },5000);
         }
     </script>
 </body>
